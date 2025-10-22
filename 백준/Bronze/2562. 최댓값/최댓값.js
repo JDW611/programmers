@@ -2,12 +2,14 @@ const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
 let input = require('fs').readFileSync(filePath).toString().split('\n').map(Number);
 
 function findMaxAndIndex(array) {
-    let result = [];
+    let maxNum = array[0];
+    for (const number of array) {
+        if (maxNum < number) {
+            maxNum = number;
+        }
+    }
 
-    result.push(Math.max(...array));
-    result.push(array.indexOf(result[0]) + 1);
-
-    return result;
+    return [maxNum, array.indexOf(maxNum) + 1];
 }
 
 result = findMaxAndIndex(input);
