@@ -6,15 +6,7 @@ const N = Number(input[0]);
 const v = Number(input[2]);
 
 function findInteger(array, v) {
-    let count = 0;
-
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] === v) {
-            count += 1;
-        }
-    }
-
-    return count;
+    return array.filter(number => number === v).length;
 }
 
 const result = findInteger(list, v);
